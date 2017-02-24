@@ -1,0 +1,230 @@
+body {
+    min-width: 1005px;
+    margin: 0;
+    padding: 0;
+    font-family: lato, sans serif;
+    font-weight: 300;
+}
+
+.button {
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 40px;
+    border-radius: 10px;
+    padding: 0px 14px;
+    vertical-align: middle;
+    text-align: center;
+    height: 40px;
+    border: none;
+}
+
+.recipe-view {
+    margin-top: 30px;
+    position: relative;
+    width: 720px;
+    left: 50%;
+    margin-left: -360px;
+    border: 1px solid rgb(200, 200, 200);
+    margin-bottom: 40px;
+}
+
+.recipe-view.small {
+    font-size: 12px !important;
+}
+
+.recipe-view.mediume {
+    font-size: 16px !important;
+}
+
+.recipe-view.large {
+    font-size: 20px !important;
+}
+
+.recipe-header {
+    position: relative;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    display: table;
+}
+
+.image-yes .recipe-header {
+    height: 130px;
+}
+
+.image-no .recipe-header {
+    height: 6em;
+}
+
+.recipe-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-transform: capitalize;
+    overflow: hidden;
+    display: table-cell;
+    vertical-align: middle !important;
+}
+
+.image-yes .recipe-title {
+    padding: 0 20px 0 130px;
+}
+
+.image-no .recipe-title {
+    padding: 0 20px;
+}
+
+.recipe-stats, .recipe-serves {
+    font-size: .5em;
+    font-weight: normal;
+}
+
+.stat-section {
+    margin-right: 10px;
+}
+
+.stat-title {
+    margin-right: 5px;
+    font-weight: bold;
+}
+
+.recipe-source {
+	display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.image-yes .recipe-image {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    background-size: cover;
+    background-position: center;
+}
+
+.image-no .recipe-image {
+    display: none;
+}
+
+.recipe-content {
+    position: relative;
+    padding: 0 15px 15px 15px;
+}
+
+.normal .recipe-section {
+    margin-bottom: 2em;
+}
+
+.compact .recipe-section {
+    margin-bottom: 1em;
+}
+
+.recipe-section ul {
+    list-style-type: none;
+    padding-left: 0px;
+    text-indent: 0px;
+}
+
+.normal .recipe-section ul {
+    margin: 1em 0;
+}
+
+.compact .recipe-section ul {
+    margin: .5em 0;
+}
+
+.recipe-section .section-title {
+	font-weight: bold;
+    text-transform: capitalize;
+    font-size: 1.1em;
+}
+
+.normal .recipe-section.separator .section-title {
+    margin-bottom: 1em;
+}
+
+.compact .recipe-section.separator .section-title {
+    margin-bottom: .5em;
+}
+
+.recipe-section.method .number {
+    width: 2em;
+    float: left;
+    font-size: 1.1em;
+    color: rgb(160,160,160);
+}
+
+.recipe-section.method .text {
+    margin-left: 2em;
+}
+
+.normal .recipe-section li {
+    margin-bottom: 1em;
+}
+
+.compact .recipe-section li {
+    margin-bottom: .5em;
+}
+
+.recipe-header .star-container {
+    position: relative;
+    float: left;
+}
+
+.options {
+    position: relative;
+    height: 80px;
+    background: rgb(245, 245, 245);
+    border-bottom: 1px solid rgb(229, 229, 229);
+    width: 100%;
+}
+
+.options .font-sizes {
+    height: 20px;
+    position: absolute;
+    top: 30px;
+    left: 20px;
+}
+
+.options .line-spacing {
+    height: 20px;
+    position: absolute;
+    top: 30px;
+    left: 300px;
+}
+
+.options .image-toggle {
+    height: 20px;
+    position: relative;
+    top: 30px;
+    left: 567px;
+}
+
+.options span {
+    cursor: pointer;
+}
+
+.options .selected {
+    font-weight: bold;
+}
+
+.options .description {
+    color: rgb(160,160,160);
+    margin-right: 15px;
+}
+
+.print-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #ffffff;
+    background-color: rgb(150,150,150);
+}
+
+.print-button:hover {
+    background-color: rgb(180,180,180);
+}

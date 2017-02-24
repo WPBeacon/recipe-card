@@ -1,0 +1,63 @@
+.yumprint-recipe-intro {
+    z-index: 1000;
+    position: absolute;
+}
+
+.yumprint-recipe-intro.yumprint-recipe-left {
+    margin-left: 120px;
+    margin-top: -35px;
+}
+
+.yumprint-recipe-intro.yumprint-recipe-left .yumprint-recipe-arrow {
+    background-image: url(../images/point-left-2.png);
+    width: 113px;
+    height: 80px;
+    position: absolute;
+    top: 10px;
+    left: 0;
+}
+
+.yumprint-recipe-intro .yumprint-recipe-container {
+    position: absolute;
+    left: 120px;
+    top: 0;
+    background-color: white;
+    border: 1px solid rgb(240, 240, 240);
+    box-shadow: #b4d3fc 0 0 5px 5px;
+    border-radius: 5px;
+    height: 110px;
+    width: 330px;
+}
+
+.yumprint-recipe-intro.yumprint-recipe-left .yumprint-recipe-container {
+    left: 120px;
+    top: 0;
+}
+
+.yumprint-recipe-intro .yumprint-recipe-text {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    font-family: helvetica-neue, helvetica, arial, sans-serif;
+    font-size: 16px;
+    color: rgb(65, 65, 65);
+    text-align: left;
+}
+
+.yumprint-recipe-intro .yumprint-recipe-skip {
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+    -webkit-box-shadow: rgba(34, 25, 25, 0.4) 0 1px 3px;
+    -moz-box-shadow: rgba(34, 25, 25, 0.4) 0 1px 3px;
+    box-shadow: 0 1px 3px rgba(34, 25, 25, 0.4);
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.yumprint-recipe-intro .yumprint-recipe-skip:hover {
+    background-color: rgb(150, 150, 150);
+    color: white;
+}

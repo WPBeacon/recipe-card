@@ -1,0 +1,253 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: Recipe Card\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: Yumprint\n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 1.5.5\n"
+
+#. Text in function
+#: yumprint-recipe.php:1
+msgid "%"
+msgstr ""
+
+#. Text in function
+#: yumprint-recipe.php:1
+msgid "% Daily Value *"
+msgstr ""
+
+#. Text in function
+#: yumprint-recipe.php:1
+msgid ""
+"* Percent Daily Values are based on a 2,000 calorie diet. Your Daily Values "
+"may be higher or lower depending on your calorie needs."
+msgstr ""
+
+#. Text in function
+#: yumprint-recipe.php:1
+msgid "Adapted from"
+msgstr ""
+
+#. Text in function
+#: yumprint-recipe.php:1
+msgid "Amount Per Serving"
+msgstr ""
+
+#. Text in function
+#: yumprint-recipe.php:1
+msgid "By"
+msgstr ""
+
+#. Text in function
+#: yumprint-recipe.php:1
+msgid "Calcium"
+msgstr ""
+
+#. Text in function
+#: yumprint-recipe.php:1
+msgid "Calories"
+msgstr ""
+
+#. Text in function
+#: yumprint-recipe.php:1
+msgid "Calories from Fat"
+msgstr ""
+
+#. Text in function
+#: yumprint-recipe.php:1
+msgid "Cholesterol"
+msgstr ""
+
+#. Text in function
+#: yumprint-recipe.php:1
+msgid "Cook Time"
+msgstr ""
+
+#. Text in function
+#: yumprint-recipe.php:1
+msgid "Dietary Fiber"
+msgstr ""
+
+#. Text in function
+#: yumprint-recipe.php:1
+msgid "Does this look wrong?"
+msgstr ""
+
+#. Text in function
+#: yumprint-recipe.php:1
+msgid "Fat"
+msgstr ""
+
+#. Text in function
+#: yumprint-recipe.php:1
+msgid "Ingredients"
+msgstr ""
+
+#. Text in function
+#: yumprint-recipe.php:1
+msgid "Instructions"
+msgstr ""
+
+#. Text in function
+#: yumprint-recipe.php:1
+msgid "Iron"
+msgstr ""
+
+#. Text in function
+#: yumprint-recipe.php:1
+msgid "Monounsaturated Fat"
+msgstr ""
+
+#. Text in function
+#: yumprint-recipe.php:1
+msgid "Notes"
+msgstr ""
+
+#. Text in function
+#: yumprint-recipe.php:1
+msgid "Nutrition Facts"
+msgstr ""
+
+#. Text in function
+#: yumprint-recipe.php:1
+msgid "Polyunsaturated Fat"
+msgstr ""
+
+#. Text in function
+#: yumprint-recipe.php:1
+msgid "Prep Time"
+msgstr ""
+
+#. Text in function
+#: yumprint-recipe.php:1
+msgid "Print"
+msgstr ""
+
+#. Text in function
+#: yumprint-recipe.php:1
+msgid "Protein"
+msgstr ""
+
+#. Text in function
+#: yumprint-recipe.php:1
+msgid "Saturated Fat"
+msgstr ""
+
+#. Text in function
+#: yumprint-recipe.php:1
+msgid "Save Recipe"
+msgstr ""
+
+#. Text in function
+#: yumprint-recipe.php:1
+msgid "Serves"
+msgstr ""
+
+#. Text in function
+#: yumprint-recipe.php:1
+msgid "Serving Size"
+msgstr ""
+
+#. Text in function
+#: yumprint-recipe.php:1
+msgid "Sodium"
+msgstr ""
+
+#. Text in function
+#: yumprint-recipe.php:1
+msgid "Sugars"
+msgstr ""
+
+#. Text in function
+#: yumprint-recipe.php:1
+msgid "Total Carbohydrates"
+msgstr ""
+
+#. Text in function
+#: yumprint-recipe.php:1
+msgid "Total Fat"
+msgstr ""
+
+#. Text in function
+#: yumprint-recipe.php:1
+msgid "Total Time"
+msgstr ""
+
+#. Text in function
+#: yumprint-recipe.php:1
+msgid "Trans"
+msgstr ""
+
+#. Text in function
+#: yumprint-recipe.php:1
+msgid "Vitamin A"
+msgstr ""
+
+#. Text in function
+#: yumprint-recipe.php:1
+msgid "Vitamin C"
+msgstr ""
+
+#. Text in function
+#: yumprint-recipe.php:1
+msgid "Wordpress Recipe Plugin"
+msgstr ""
+
+#. Text in function
+#: yumprint-recipe.php:1
+msgid "Write a review"
+msgstr ""
+
+#. Text in function
+#: yumprint-recipe.php:1
+msgid "Yields"
+msgstr ""
+
+#. Text in function
+#: yumprint-recipe.php:1
+msgid "beta"
+msgstr ""
+
+#. Text in function
+#: yumprint-recipe.php:1
+msgid "by"
+msgstr ""
+
+#. Text in function
+#: yumprint-recipe.php:1
+msgid "calories"
+msgstr ""
+
+#. Text in function
+#: yumprint-recipe.php:1
+msgid "carbs"
+msgstr ""
+
+#. Text in function
+#: yumprint-recipe.php:1
+msgid "fat"
+msgstr ""
+
+#. Text in function
+#: yumprint-recipe.php:1
+msgid "g"
+msgstr ""
+
+#. Text in function
+#: yumprint-recipe.php:1
+msgid "mg"
+msgstr ""
+
+#. Text in function
+#: yumprint-recipe.php:1
+msgid "more"
+msgstr ""
+
+#. Text in function
+#: yumprint-recipe.php:1
+msgid "protein"
+msgstr ""

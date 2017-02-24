@@ -1,0 +1,14 @@
+.recipe-view {
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    margin-left: 0px;
+    border: none;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.options {
+    display: none;
+}
+

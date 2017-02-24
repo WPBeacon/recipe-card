@@ -1,0 +1,1355 @@
+/* recipe preview */
+
+body {
+    color: #414141;
+    font-family: 'helvetica neue', 'helvetica', 'arial', 'tahoma', 'sans-serif';
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: relative;
+}
+
+.preview {
+    position: absolute;
+    top: 51px;
+    right: 370px;
+    left: 0;
+    text-align: center;
+    bottom: 0;
+    padding: 10px;
+    overflow: auto;
+}
+
+.blog-yumprint-recipe {
+    cursor: pointer;
+    width: 600px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    display:  inline-block !important;
+}
+
+/* color picker */
+
+.color-picker {
+    position: fixed;
+    width: 600px;
+    height: 460px;
+    top: 50%;
+    left: 50%;
+    margin-top: -230px;
+    margin-left: -300px;
+    z-index: 102;
+    background-color: rgb(250, 250, 250);
+    border-radius: 5px;
+}
+
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 101;
+    background-color: white;
+    opacity: .75;
+    top: 0;
+    left: 0;
+}
+
+.close {
+    width: 40px;
+    height: 40px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image: url(../images/close.png);
+    border-radius: 10px;
+    cursor: pointer;
+    top: 10px;
+    right: 10px;
+    position: absolute;
+}
+
+.gray {
+    color: #ffffff;
+    background-color: rgb(150,144,141);
+}
+.gray:hover, .gray:focus {
+    color: #ffffff;
+    background-color: rgb(169,165,170);
+}
+.gray:active {
+    color: #ffffff;
+    background-color: rgb(150,144,141);
+}
+
+.color-picker canvas.big {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.color-picker canvas.small {
+    position: absolute;
+    top: 10px;
+    left: 400px;
+}
+
+.color-picker canvas {
+    box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    padding: 0;
+    margin: 0;
+    border: 2px solid rgb(150, 150, 150);
+    cursor: crosshair;
+}
+
+.color-picker ul {
+    position: absolute;
+    left: 470px;
+    top: 94px;
+    color: rgb(65, 65, 65);
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.color-picker li {
+    margin-bottom: 5px;
+    position: relative;
+}
+
+.color-picker input[type=radio] {
+    top: -2px;
+}
+
+.color-picker input {
+    font-family: 'helvetica neue', 'helvetica', 'arial', 'tahoma', 'sans-serif';
+    font-size: 16px;
+}
+
+.color-picker input[type="text"] {
+    background-color: rgb(255, 255, 255);
+    padding: 5px;
+    outline: none;
+    border: 2px solid rgb(200, 200, 200);
+    box-shadow: none;
+}
+
+.color-picker input[type="text"]:focus {
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(145,196,67);
+    box-shadow: inset 0 0 3px rgb(150, 150, 150);
+    outline:  none;
+}
+
+.color-picker #hex {
+    width: 70px;
+    text-transform: uppercase;
+}
+
+.color-picker .number {
+    width: 36px;
+    margin-right: 5px;
+}
+
+.color-picker .number-label {
+    margin-right: 10px;
+    margin-left: 5px;
+}
+
+.color-picker .hex-label {
+    margin-right: 5px;
+}
+
+.color-picker .triangle {
+    display: block;
+    position: absolute;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    top: 3px;
+    cursor: hand;
+}
+
+.color-picker .triangle.left {
+    border-left:10px solid rgb(150, 150, 150);
+    border-right: none;
+    left: 389px;
+}
+
+.color-picker .triangle.right {
+    border-right:10px solid rgb(150, 150, 150);
+    border-left: none;
+    left: 445px;
+}
+
+.color-picker .color-preview {
+    width: 50px;
+    height: 50px;
+    border: 2px solid rgb(150, 150, 150);
+    box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    position: absolute;
+    top: 380px;
+}
+
+.color-picker .color-preview.old {
+    left: 10px;
+    border-right: none;
+}
+
+.color-picker .color-preview.new {
+    left: 62px;
+    border-left: none;
+}
+
+.color-picker .color-preview-text {
+    width: 52px;
+    position: absolute;
+    top: 440px;
+    text-align: center;
+    font-size: 10px;
+}
+
+.color-picker .color-preview-text.old {
+    left: 10px;
+}
+
+.color-picker .color-preview-text.new {
+    left: 62px;
+}
+
+.color-picker .color-palette {
+    position: absolute;
+    left: 120px;
+    border: 2px solid rgb(150, 150, 150);
+    box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    width: 250px;
+    height: 50px;
+    top: 380px;
+}
+
+.color-picker .color-palette .color {
+    padding: 0;
+    margin: 0;
+    width: 25px;
+    height: 25px;
+    display: inline-box;
+    float: left;
+}
+
+.white {
+    background-color: rgb(255,255,255)
+}
+
+.white:hover, .white:focus {
+    background-color: rgb(240,240,240);
+}
+
+.white:active {
+    background-color: rgb(240,240,240);
+}
+
+.button {
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 40px;
+    border-radius: 10px;
+    padding: 0px 14px;
+    vertical-align: middle;
+    text-align: center;
+    height: 40px;
+    border: none;
+}
+
+.color-picker .button {
+    width: 90px;
+}
+
+.box-shadow {
+    -webkit-box-shadow: rgba(34, 25, 25, 0.4) 0 1px 3px;
+    -moz-box-shadow: rgba(34, 25, 25, 0.4) 0 1px 3px;
+    box-shadow: 0 1px 3px rgba(34, 25, 25, 0.4);
+}
+
+.color-picker #ok {
+    position: absolute;
+    bottom: 25px;
+    right: 120px;
+}
+
+.color-picker #cancel {
+    position: absolute;
+    bottom: 25px;
+    right: 20px;
+}
+
+.palettes ul {
+    list-style-type: none;
+    margin: 20px 20px;
+    padding: 0;
+}
+
+.palettes li.head {
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgb(150, 150, 150);
+    width: 240px;
+    padding-left: 20px;
+    text-transform: capitalize;
+}
+
+.palettes li.color {
+    width: 200px;
+    height: 40px;
+    margin-left: 20px;
+    line-height: 40px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* menu system */
+
+.menu {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	width: 365px;
+	-webkit-box-shadow: rgba(34, 25, 25, 0.4) -1px 0px 1px;
+    -moz-box-shadow: rgba(34, 25, 25, 0.4) -1px 0px 1px;
+    box-shadow: -1px 0px 1px rgba(34, 25, 25, 0.4);
+}
+
+.option-panel {
+    width: 365px; 
+    position: absolute; 
+    top: 41px; 
+    right: 0;
+    bottom: 0;
+    font-size: 14px;
+    background-color: rgb(240,240,240); 
+}
+
+.option-tabs {
+    width: 365px;
+    height: 40px;
+    position: absolute;
+    top: 0;
+    background-color: rgb(253,253,253);    
+    line-height: 40px;
+    cursor: pointer;
+    border-bottom: 1px solid rgb(200,200,200);
+    z-index: 100;
+}
+
+.menu .option-tabs {
+    top: 0;
+}
+
+.fonts .picker .option-tabs, .option-tabs.color-menu {
+	position: absolute;
+	top: 0px;
+}
+
+.option-tab {
+    height: 40px;
+    position: relative;
+    float: left;
+    text-align: center;
+    font-size: 14px;
+    padding: 0 12px;
+    cursor: pointer;
+}
+
+.option-tab.selected {
+    background-color: rgb(220,220,220);
+    color: white;
+}
+
+.option-tab:hover {
+    background-color: #b4d3fc !important;
+    color: black !important;
+}
+
+.panel-instructions {
+    width: 325px;
+    padding: 10px 20px;
+    height: 50px;
+    position: absolute;
+    top: 40px;
+    background-color: rgb(253,253,253);    
+    line-height: 150%;
+    border-bottom: 1px solid rgb(200,200,200);
+    z-index: 100;	
+    font-family: 'Architects Daughter';
+    display: none;
+}
+
+.panel-instructions:before {
+	content: '';
+	background-image: url(../images/point-left.png);
+	width: 108px;
+	height: 71px;
+	position: relative;
+	float: left;
+	margin-left: -108px;
+}
+
+.font-choice.selected {
+    background-color: rgb(200, 200, 200);
+}
+
+.font-choice:hover {
+    background-color: #b4d3fc;
+}
+
+.header-font, .body-font, .button-font, .info-font, .subheader-font {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.custom-font .header-font, .custom-font .body-font, .custom-font .button-font, .custom-font .info-font, .custom-font .subheader-font {
+    width: 200px;
+}
+
+.header-font {
+    font-size: 1.6em;
+}
+
+.subheader-font {
+	font-size: 1.25em;
+}
+
+.body-font {
+    font-size: 1em;
+}
+
+.info-font {
+    font-size: 1em;
+}
+
+.button-font {
+    font-size: 13px;
+}
+
+.background-title {
+    width:150px;
+    height: 100px;
+    position: absolute;
+    top: 20px;
+    left: 150px;
+    line-height: 100px;
+}
+
+.font-choice {
+	width: 288px;
+	height: 30px;
+	position: relative;
+	float: left;
+	cursor: pointer;
+	margin-left: 31px;
+	text-align: center;
+	line-height: 30px;
+}
+
+.font-choice {
+    background-image: url(../images/fonts.png);
+}
+
+.font-choice.web {
+	background-image: none !important;
+	text-align: center;
+	font-size: 20px;
+}
+
+.font-choice.font-separator {
+    background-image: none !important;
+    border-bottom: 1px dashed rgb(200, 200, 200);
+    height: 0;
+    width: 328px;
+    margin: 10px 10px;
+}
+
+.font-title {
+    display: none;
+}
+
+.checkbox {
+	width: 100px;
+	height: 40px;
+	display: inline-block;
+	border-radius: 5px;
+	overflow: hidden;
+	position: relative;
+	cursor: pointer;
+	-webkit-box-shadow: inset rgba(34, 25, 25, 0.4) 0 1px 3px;
+	-moz-box-shadow: inset rgba(34,25,25,0.4) 0 1px 3px;
+	box-shadow: inset 0 1px 3px rgba(34, 25, 25, 0.4);
+	cursor: pointer;
+}
+
+.checkbox input {
+	visibility: hidden;
+}
+
+.checkbox .blocker {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: -5px;
+	left: -5px;
+	z-index: 100;
+	border-radius: 10px;
+	border: 5px solid #FAFAFA;
+	background-color: transparent;
+}
+
+.checkbox .container {
+	z-index: 1;
+	width: 160px;
+	height: 40px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	transition: left .25s ease-in;
+	-webkit-transition: left .25s ease-in;
+	-moz-transition: left .25s ease-in;
+	-o-transition: left .25s ease-in;
+}
+
+.checkbox .on {
+	z-index: 2;
+	background-color: #a6a6a6;
+	width: 62px;
+	height: 40px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	text-align: left;
+	padding-left: 18px;
+	line-height: 40px;
+}
+
+.checkbox .option {
+	text-transform: uppercase;
+	color: white;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.checkbox .knob {
+	width: 38px;
+	height: 38px;
+	position: absolute;
+	top: 0;
+	left: 60px;
+	z-index: 10;
+	border-radius: 5px;
+}
+
+.white-passive {
+	color: #6B6355;
+	border: solid 1px #B7B7B7;
+	background: white;
+	background: -webkit-gradient(linear,left top,left bottom,from(white),to(#EDEDED));
+	background: -moz-linear-gradient(top,white,#EDEDED);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff',endColorstr='#ededed');
+}
+
+.checkbox .off {
+	z-index: 2;
+	background-color: gainsboro;
+	width: 62px;
+	height: 40px;
+	position: absolute;
+	top: 0;
+	left: 80px;
+	text-align: right;
+	padding-right: 18px;
+	line-height: 40px;
+}
+
+.checkbox-text {
+	display: inline-block;
+	height: 40px;
+	line-height: 40px;
+	position: absolute;
+	top: 0;
+	left: 120px;
+}
+
+.checkbox-item {
+	position: relative;
+	height: 40px;
+	margin: 10px 20px;
+	width: 250px;
+}
+
+.text-item {
+    position: relative;
+   	height: 41px;
+   	margin: 10px 20px;
+    margin-top: 6px;
+   	width: 250px;
+}
+
+.text-item input {
+    width: 100px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    text-transform: none;
+    font-family: 'helvetica neue', 'helvetica', 'arial', 'tahoma', 'sans-serif';
+    font-size: 22px;
+    padding: 5px;
+    border-radius: 5px;
+    display: inline-block;
+    border: 2px solid rgb(200, 200, 200);
+    text-align: center;
+}
+
+.text-item input:focus {
+    background-color: rgb(255, 255, 255) !important;
+    border: 2px solid rgb(145,196,67) !important;
+    box-shadow: inset 0 0 3px rgb(150, 150, 150) !important;
+    outline:  none !important;
+}
+
+.text-item .text {
+	display: inline-block;
+	height: 41px;
+	line-height: 41px;
+	position: absolute;
+	top: 0;
+	left: 120px;
+}
+
+.combo-box, .combo-box ul {
+    display: block;
+    border: 2px solid rgb(220, 220, 220);
+    border-radius: 5px;
+    resize: none;
+    background-color: rgb(255, 255, 255);
+    margin: 0;
+    vertical-align: baseline;
+    height: auto;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    font-size: 22px;
+    font-weight: 300;
+    padding: 5px;
+    width: 250px;
+    text-align: left;
+    margin-left: 20px;
+    color: rgb(65, 65, 65);
+    cursor: pointer;
+    position: relative;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.select-transform {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.combo-box:active {
+    background-color: #b4d3fc !important;
+}
+
+.combo-box .arrow {
+    width: 0;
+   	height: 0;
+   	border-left: 10px solid transparent;
+   	border-right: 10px solid transparent;
+   	border-top: 15px solid rgb(169, 169, 169);
+    position: absolute;
+    right: 10px;
+    top: 13px;
+}
+
+.combo-box:active .arrow {
+    display: none;
+}
+
+.combo-box.selected .arrow {
+    width: 0;
+   	height: 0;
+   	border-left: 10px solid transparent;
+   	border-right: 10px solid transparent;
+   	border-top: 15px solid rgb(65, 65, 65);
+    position: absolute;
+    right: 10px;
+    top: 18px;
+}
+
+.combo-box ul {
+    display: none;
+    position: absolute;
+    margin-left: 0;
+    top: -2px;
+    left: -2px;
+    list-style-type: none;
+    padding: 0;
+    z-index: 100;
+}
+
+.combo-box li {
+    padding: 5px;
+}
+
+.combo-box li:hover {
+    background-color: rgb(220, 220, 220);
+}
+
+.combo-box li:active {
+    background-color: #b4d3fc !important;
+}
+
+.combo-box .text {
+    color: rgb(169, 169, 169);
+}
+
+.combo-box.selected .text {
+    color: rgb(65, 65, 65);
+}
+
+.combo-box:active .text {
+    color: white;
+}
+
+.font-select {
+    padding: 10px 0;
+    position: absolute;
+    top: 310px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: auto;
+    border-top: 1px solid rgb(182, 179, 179);
+}
+
+.picker-header {
+    padding: 20px;
+    padding-bottom: 10px;
+    position: relative;
+}
+
+.picker-header .text {
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+.template-select {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 420px;
+    bottom: 0;
+    overflow: auto;
+    border-top: 1px solid rgb(182, 179, 179);
+    padding: 10px;
+}
+
+.hovered {
+    background-color: #b4d3fc !important;
+}
+
+.hovered-border {
+    border: 10px solid #b4d3fc !important;
+}
+
+.top-panel .swatches {
+    overflow: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.swatch {
+    height: 120px;
+    width: 348px;
+    padding: 10px;
+    margin: 0;
+    cursor: pointer;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    position: relative;
+}
+
+.swatch.selected {
+    background-color: rgb(190, 190, 190);
+}
+
+.swatch:hover {
+    background-color: #b4d3fc !important;
+}
+
+.swatch.selected {
+    background-color: rgb(190, 190, 190);
+}
+
+.swatch:hover {
+    background-color: #b4d3fc !important;
+}
+
+.swatch .holder {
+    width: 328px;
+    height: 100px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    position: relative;
+    background-color: white;
+    border: 2px solid white;
+}
+
+.swatch .text {
+	width: 200px;
+	height: 100px;
+	position: absolute;
+	top: 5px;
+	left: 120px;
+	line-height: 150%;
+	font-size: 22px;
+	color: rgb(65, 65, 65);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.swatch .sub-text {
+    font-size: 14px !important;
+    position: absolute;
+    left: 120px;
+    width: 200px;
+    bottom: 20px;
+    color: rgb(65, 65, 65);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.color-1 {
+    position: absolute;
+    height: 90px;
+    width: 40px;
+    top: 3px;
+    left: 3px;
+}
+
+.color-2 {
+    position: absolute;
+    height: 90px;
+    width: 30px;
+    top: 3px;
+    left: 43px;
+}
+
+.color-3 {
+    position: absolute;
+    height: 90px;
+    width: 20px;
+    top: 3px;
+    left: 73px;
+}
+
+.theme.swatch .layout-1 {
+    position: absolute;
+    right: 3px;
+    top: 3px;
+    height: 90px;
+    width: 90px;
+    background-size: 100%;
+}
+
+.swatch .text-1 {
+    font-size: 24px !important;
+    position: absolute;
+    text-align: center;
+    left: 100px;
+    right: 100px;
+    top: 5px;
+    height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.swatch .text-2 {
+    font-size: 14px !important;
+    text-align: center;
+    position: absolute;
+    left: 100px;
+    right: 100px;
+    top: 45px;
+    bottom: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.background.swatch .example-header {
+	position: absolute;
+	top: 13px;
+	width: 80px;
+	left: 13px;
+	height: 15px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+	background-color: transparent;
+}
+
+.background.swatch .example-box {
+	position: absolute;
+	height: 40px;
+	width: 40px;
+	left: 53px;
+	bottom: 13px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+.layout.swatch .image {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    height: 90px;
+    width: 90px;
+    position: absolute;
+    left: 3px;
+    top: 3px;
+    background-size: 100%;
+}
+
+.font.swatch .icon {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    height: 90px;
+    width: 90px;
+    text-align: center;
+    line-height: 90px;
+    font-size: 30px !important;
+    color: white;
+    background-color: rgb(65, 65, 65);
+}
+
+.combo-set .combo-box, .combo-set .combo-box ul {
+    width: 150px;
+}
+
+.combo-set .combo-box {
+    position: absolute;
+    left: 75px;
+    top: 0;
+    margin: 0;
+}
+
+.combo-set {
+    margin-bottom: 10px;
+    height: 41px;
+    position: relative;
+    margin: 10px 0;
+}
+
+.combo-set .combo-text {
+    position: absolute;
+    left: 10px;
+    top: 11px;
+}
+
+.backgrounds .picker .section {
+    margin: 10px 20px;
+}
+
+.backgrounds .picker .section .header {
+    border-bottom: 1px solid #b6b3b3;
+    padding-bottom: 5px;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.picker {
+    z-index: 100;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    background-color: rgb(253, 253, 253);
+    overflow: auto;
+}
+
+.coming-soon {
+    color: rgb(200, 200, 200);
+}
+
+/* edit bar */
+
+.edit-bar {
+	position: absolute;
+	top: 0;
+	right: 370px;
+    left: 0;
+	height: 50px;
+	font-size: 14px;
+}
+
+.edit-bar-options {
+	position: absolute;
+	left: 50%;
+	margin-left: -124px;
+}
+
+.remember, .apply {
+    background-color: rgb(200, 200, 200);
+	font-size: 14px;
+	margin: 12px 0 0 0;
+	float: left;
+	padding: 0 10px;
+	line-height: 34px;
+	height: 34px;
+	color: white;
+}
+
+.apply.applied {
+    background-color: rgb(240, 240, 240);
+}
+
+.apply.applied:hover {
+    background-color: rgb(240, 240, 240) !important;
+}
+
+.remember {
+	margin-left: 15px;
+}
+
+.remember:hover, .apply:hover {
+    background-color: #b4d3fc !important;
+}
+
+.color-choice {
+    height: 50px;
+    position: relative;
+}
+
+.color-choice .color {
+    position: absolute;
+    left: 75px;
+    top: 0;
+    height: 41px;
+    width: 150px;
+    border-radius: 5px;
+    border: 2px solid #a9a9a9;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.color-choice .text {
+    position: absolute;
+    left: 10px;
+    top: 0;
+    height: 41px;
+    line-height: 41px;
+}
+
+.background-colors .color {
+    left: 168px;
+    cursor: pointer;
+}
+
+
+.theme.swatch .remove {
+    position: absolute;
+    width: 70px;
+    left: 50%;
+    margin-left: -40px;
+    bottom: 15px;
+    padding: 5px;
+    background-color: rgb(200, 200, 200);
+    text-align: center;
+    border-radius: 5px;
+    font-size: 14px;
+    z-index: 10;
+}
+
+.theme.swatch .remove:hover {
+    background-color: #b4d3fc !important;
+    border: 2px solid white;
+    margin-left: -42px;
+    margin-bottom: -2px;
+}
+
+.theme.swatch.custom .text-2 {
+    margin-top: -5px;
+}
+
+
+/* layout swatches */
+
+.layout-swatch {
+    width: 82px;
+    height: 82px;
+    border: 4px solid rgb(160,160,160);
+    background-color: white;
+}
+
+.layout-photo-top {
+    position: relative;
+    float: right;
+    display: inline-block;
+    display: block;
+    width: 12px;
+    height: 12px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin: 2px;
+}
+
+.blog-yumprint-big-image .layout-photo-top-large {
+    position: relative;
+    display: block;
+    width: 78px;
+    height: 27px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin: 2px;
+}
+
+.blog-yumprint-medium-image .layout-photo-middle, .blog-yumprint-stat-focus .layout-info-box {
+    position: relative;
+    float: right;
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin: 0 2px 2px 2px;
+    background-color: rgb(220,220,220);
+}
+
+.blog-yumprint-nutrition-focus .layout-nutrition-box {
+    position: relative;
+    float: right;
+    display: inline-block;
+    width: 19px;
+    height: 48px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin: 0 2px 2px 2px;
+    background-color: rgb(220,220,220); 
+}
+
+.blog-yumprint-medium-image .layout-photo-top, .blog-yumprint-big-image .layout-photo-top {
+    display: none;
+}
+
+.blog-yumprint-stat-focus .layout-info-bar {
+    display: none;
+}
+
+.blog-yumprint-nutrition-focus .layout-nutrition-bar {
+    display: none;
+}
+
+.layout-recipe-title {
+    height: 6px;
+    background-color: #C8C8C8;
+    margin: 2px 16px 2px 2px;
+}
+
+.layout-recipe-title.layout-no-image, .layout-recipe-summary.layout-no-image, .blog-yumprint-medium-image .layout-recipe-title, .blog-yumprint-medium-image .layout-recipe-summary, .blog-yumprint-big-image .layout-recipe-title, .blog-yumprint-big-image .layout-recipe-summary {
+    width: 78px;
+    margin: 2px;
+}
+
+.layout-recipe-summary {
+    height: 4px;
+    background-color: #C8C8C8;
+    margin: 2px 16px 2px 2px;
+}
+
+.layout-header {
+    width: 78px;
+    height: 6px;
+    margin: 2px;
+    clear: both;
+}
+
+.layout-print, .layout-save {
+    height: 6px;
+    width: 13px;
+    border-radius: 2px;
+    float: left;
+    background-color: rgb(220,220,220);
+    margin-right: 2px;
+}
+
+.layout-stars-reviews {
+    float: right;
+    width: 27px;
+    height: 6px;
+}
+
+.layout-info-bar {
+    width: 78px;
+    height: 6px;
+    background-color: rgb(220,220,220);
+    margin: 2px;
+}
+
+.layout-info-section {
+    width: 33%;
+    height: 100%;
+    border: 1px solid rgb(250,250,250);
+    display: inline-block;
+    float: left;
+}
+
+.blog-yumprint-standard .layout-ingredient-section, .layout-method-section {
+    width: 78px;
+    margin: 2px;
+    background-color: rgb(200,200,200);
+    height: 19px;
+}
+
+.blog-yumprint-stat-focus .layout-method-section {
+    height: 27px;
+}
+
+.blog-yumprint-nutrition-focus .layout-method-section {
+    width: 57px;
+    margin: 2px;
+    background-color: rgb(200,200,200);
+    height: 27px;   
+}
+
+.blog-yumprint-medium-image .layout-ingredient-section, .blog-yumprint-stat-focus .layout-ingredient-section, .blog-yumprint-nutrition-focus .layout-ingredient-section {
+    width: 57px;
+    margin: 2px;
+    background-color: rgb(200,200,200);
+    height: 19px;
+}
+
+.blog-yumprint-side-by-side .layout-ingredient-section, .blog-yumprint-side-by-side .layout-method-section {
+    width: 38px;
+    height: 40px;
+    display: inline-block;
+    background-color: rgb(200, 200, 200);
+    margin: 0 0 2px 2px;
+}
+
+.blog-yumprint-side-by-side .layout-recipe-contents {
+    height: 40px;
+}
+
+.layout-nutrition-bar {
+    width: 78px;
+    margin: 2px;
+    background-color: rgb(220,220,220);
+    height: 6px;
+}
+
+/* templates */
+
+.theme.swatch .remove {
+    position: absolute;
+    width: 70px;
+    left: 50%;
+    margin-left: -40px;
+    bottom: 15px;
+    padding: 5px;
+    background-color: rgb(200, 200, 200);
+    text-align: center;
+    border-radius: 5px;
+    font-size: 14px;
+    z-index: 10;
+}
+
+.theme.swatch .remove:hover {
+    background-color: #b4d3fc !important;
+    border: 2px solid white;
+    margin-left: -42px;
+    margin-bottom: -2px;
+}
+
+.theme.swatch.custom .text-2 {
+    margin-top: -5px;
+}
+
+.blog-thumbnail {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    width: 150px;
+    height: 150px;
+    background-color: rgb(253, 253, 253);
+    z-index: 100;
+    padding: 20px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.blog-thumbnail .image {
+    background-image: url(../images/wordpress.png);
+    background-size: 100%;
+    width: 100%;
+    height: 100%;
+}
+
+.loading {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    padding-top: 100px;
+    text-align: center;
+}
+
+.loading .container {
+    display: inline-block;
+}
+
+.loading .image {
+    background-image: url(../images/working.gif);
+    width: 54px;
+    height: 55px;
+    display: inline-block;
+    float: left;
+}
+
+.loading .text {
+    font-size: 32px;
+    margin-left: 20px;
+    display: inline-block;
+    height: 55px;
+    line-height: 55px;
+    line-height: 55px;
+    color: rgb(150, 150, 150);
+}
