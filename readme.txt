@@ -104,7 +104,7 @@ Email [feedback@yumprint.com](mailto:feedback@yumprint.com) with your Recipe Car
 == Changelog ==
 
 = 1.1.7.0001.forked =
-* Removed API call prevent new cards from saving
+* Removed API call preventing new cards from saving
 * Fixes https insecure warnings
 
 = 1.1.7 =
