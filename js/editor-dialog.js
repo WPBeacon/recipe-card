@@ -13567,14 +13567,15 @@
                 };
             /^data:image\/(png|jpg|jpeg);base64,/.test(theImage) ? a.imageBlob = theImage.replace(/^data:image\/(png|jpg|jpeg);base64,/, "") : a.image = theImage;
             recipeInfo.id && (a.adapted = recipeInfo.id);
-            api.createWidgetRecipe(a, function(a) {
-                a ? messages.postMessage("save", {
-                    recipe: q,
-                    yumprintId: a.id,
-                    nutrition: a.nutrition,
-                    yumprintKey: a.key
-                }) : (alert("Recipe Card could not save the recipe. Please contact support@yumprint.com for help."), $(".working").hide(), $("#save,#cancel").show())
+          
+            // 	Original code no longer works to send to 3rd party API. This patch skips the API so it can continue with the save
+            messages.postMessage("save", {
+                recipe: q,
+                yumprintId: a.id,
+                nutrition: a.nutrition,
+                yumprintKey: a.key
             });
+
             $("#save,#cancel").hide();
             $(".working").show()
         }
