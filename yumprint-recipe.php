@@ -3,9 +3,10 @@
 Plugin Name: Recipe Card
 Plugin URI: http://yumprint.com/recipecard
 Description: Create beautiful recipes that readers can print, save and review. Recipe Card optimizes your recipes for search engines and generates nutrition facts.
-Version: 1.1.7
+Version: 1.1.7.forked.0001
 Author: Yumprint
 Author URI: http://yumprint.com
+Forked: austinginder
 License: GPLv2 or later
 */
 
