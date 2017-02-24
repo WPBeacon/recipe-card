@@ -1259,7 +1259,7 @@ HTML;
 
 	if (!empty($families)) {
 echo <<<HTML
-	@import url(http://fonts.googleapis.com/css?family={$families});
+	@import url(https://fonts.googleapis.com/css?family={$families});
 HTML;
 	}
 
