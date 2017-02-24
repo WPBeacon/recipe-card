@@ -1,5 +1,5 @@
 (function() {
-    var DEBUG = !1,
+    var DEBUG = 1,
         HOST = DEBUG ? "http://test.yumprint.com" : "http://yumprint.com",
         SECURE_HOST = DEBUG ? "https://test.yumprint.com" : "https://yumprint.com",
         API_HOST = DEBUG ? "http://testapi.yumprint.com" : "http://api.yumprint.com",
