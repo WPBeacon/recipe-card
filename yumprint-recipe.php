@@ -604,8 +604,10 @@ function yumprint_recipe_render_recipe($recipeId) {
 
 	$div = !empty($unit) ? $unit : 1;
 
-	foreach ($nutrition as $key => &$value) {
-		$value /= $div;
+	if ( is_array($nutrition) || ($nutrition instanceof Traversable) ) { 
+		foreach ($nutrition as $key => &$value) { 
+			$value /= $div; 
+		} 
 	}
 
 	$grams = round($nutrition->grams);
