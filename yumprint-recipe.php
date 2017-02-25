@@ -749,10 +749,6 @@ HTML;
 
 	$save_recipe_text = __("Save Recipe", "yumprint-recipe");
 
-echo <<<HTML
-		<div class="blog-yumprint-save blog-yumprint-action"><a href="{$yumprint_host}/app/object/{$recipe_id}">$save_recipe_text</a></div>
-HTML;
-
 	$print_text = __("Print", "yumprint-recipe");
 
 	if ($showPrint) {

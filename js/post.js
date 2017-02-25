@@ -13002,14 +13002,6 @@
     }
 
     function initRecipe(a) {
-        if (699 < $(window).width()) {
-            var e = a.find(".blog-yumprint-save");
-            if (!e.length || !e.is(":visible") || "hidden" === e.css("visibility") || e.css("background-color") === e.css("color") || "0px" !== e.css("top") || "0px" !== e.css("left") || "0px" !== e.css("bottom") || "0px" !== e.css("right") || "0px" !== e.css("margin-top") && "" !== e.css("margin-top") || "0px" !== e.css("margin-right") && "" !== e.css("margin-right") || "0px" !== e.css("margin-bottom") && "" !== e.css("margin-bottom") || "0px" !== e.css("margin-left") && "" !== e.css("margin-left") ||
-                "0px" !== e.css("margin") && "" !== e.css("margin") || "0px" === e.css("height") || "0px" === e.css("width") || !e.text()) {
-                a.remove();
-                return
-            }
-        }
         a.find(".blog-yumprint-print").click(function() {
             for (var b = {
                     title: a.find(".blog-yumprint-recipe-title").text(),
