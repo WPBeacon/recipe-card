@@ -145,11 +145,8 @@ function yumprint_recipe_custom_scripts() {
 
 	wp_register_style('yumprint-recipe-theme-layout', $yumprint_directory . "/css/layout.css");
 	wp_enqueue_style('yumprint-recipe-theme-layout');
-
 	wp_enqueue_script('jquery');
-
-	wp_register_script('yumprint-recipe-post', $yumprint_directory . "/js/post.js");
-	wp_enqueue_script('yumprint-recipe-post');
+	wp_enqueue_script('yumprint-recipe-post',  $yumprint_directory . "/js/post.js", array(), '2017-02-25');
 }
 
 function yumprint_recipe_themes() {
