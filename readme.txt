@@ -103,6 +103,10 @@ Email [feedback@yumprint.com](mailto:feedback@yumprint.com) with your Recipe Car
 
 == Changelog ==
 
+= 1.1.7.0002.forked =
+* Removed save recipe button
+* Removed link to write a review
+
 = 1.1.7.0001.forked =
 * Removed API call preventing new cards from saving
 * Fixes https insecure warnings
