@@ -103,6 +103,9 @@ Email [feedback@yumprint.com](mailto:feedback@yumprint.com) with your Recipe Car
 
 == Changelog ==
 
+= 1.1.7.0003.forked =
+* Fix for older versions of PHP
+
 = 1.1.7.0002.forked =
 * Removed save recipe button
 * Removed link to write a review
